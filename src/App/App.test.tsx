@@ -1,9 +1,10 @@
 import React from 'react';
-import { render } from '@testing-library/react';
 import App from './App';
+import { render } from 'enzyme';
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe('<App />', () => {
+  it('should render a div', () => {
+    const wrapper = render(<App />);
+    expect(wrapper.find('div').length > 0).toBe(true);
+  });
 });

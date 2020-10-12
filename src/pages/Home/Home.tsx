@@ -3,18 +3,30 @@ import Container from './Home.styles';
 import Store from 'App/App.store';
 import { RouteComponentProps } from '@reach/router';
 
-interface IProps extends RouteComponentProps {}
+export interface IProps extends RouteComponentProps {
+  counter: number;
+  increment: () => void;
+  decrement: () => void;
+}
 
-const Home: React.FC<IProps> = () => {
-  const store = Store.useContainer();
-
+export const Home: React.FC<IProps> = (props) => {
   return (
     <Container>
-      <p>{store.counter}</p>
-      <button onClick={() => store.increment()}>increment</button>
-      <button onClick={() => store.decrement()}>decrement</button>
+      <p>{props.counter}</p>
+      <button onClick={() => props.increment()}>increment</button>
+      <button onClick={() => props.decrement()}>decrement</button>
     </Container>
   );
 };
 
-export default Home;
+export default (props: RouteComponentProps) => {
+  const store = Store.useContainer();
+  return (
+    <Home
+      counter={store.counter}
+      increment={store.increment}
+      decrement={store.decrement}
+      {...props}
+    />
+  );
+};
