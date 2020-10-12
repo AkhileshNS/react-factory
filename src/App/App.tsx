@@ -3,19 +3,14 @@ import React from 'react';
 // App Components
 import Container from 'App/App.styles';
 import Controller from 'App/App.controller';
-import Store from 'App/App.store';
+import Pages from 'pages/index';
 
 const App = () => {
-  const store = Store.useContainer();
-
   return (
-    <div className='App'>
+    <Container>
       <Controller />
-      <Container />
-      <p>{store.counter}</p>
-      <button onClick={() => store.increment()}>increment</button>
-      <button onClick={() => store.decrement()}>decrement</button>
-    </div>
+      <Pages />
+    </Container>
   );
 };
 
