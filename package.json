@@ -22,7 +22,11 @@
     "postbuild": "react-snap",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "ts-node --project server-tsconfig.json src/server"
+    "server": "ts-node --project server-tsconfig.json src/server",
+    "add": "node scripts/add",
+    "sync": "node scripts/sync",
+    "remove": "node scripts/remove",
+    "change": "node scripts/change"
   },
   "eslintConfig": {
     "extends": "react-app"
